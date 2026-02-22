@@ -8,7 +8,7 @@ RFC3339 = "%Y-%m-%dT%H:%M:%SZ"
 
 
 def utcnow():
-  return datetime.datetime.utcnow().replace(microsecond=0)
+  return datetime.datetime.now(datetime.UTC).replace(tzinfo=None, microsecond=0)
 
 
 def to_rfc3339(dt: datetime.datetime) -> str:

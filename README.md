@@ -34,3 +34,15 @@ python tools/ca_issue_cert.py
 python tools/receipt_sign.py examples/allow.receipt.json examples/signed/allow.receipt.signed.json
 python tools/verify_receipt.py examples/signed/allow.receipt.signed.json
 ```
+
+## Conformance
+Run all conformance tests locally:
+```bash
+source .venv/bin/activate
+bash conformance/run.sh
+cat conformance/report.json
+```
+
+Note:
+- T01/T07/T09/T10 require an action-boundary demo (gateway/sidecar/SDK).
+- They are `SKIP` in the v0.1 runner for now.

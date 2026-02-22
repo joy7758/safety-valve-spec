@@ -1,15 +1,16 @@
 {
   "receipt_version": "0.1",
-  "receipt_id": "r-deny-001",
-  "issued_at": "2026-02-22T11:22:54Z",
-  "nonce": "n-deny1234",
+  "receipt_id": "r-allow-001",
+  "issued_at": "2020-01-01T00:00:00Z",
+  "nonce": "n-abc12345",
   "actor": {
     "type": "user",
     "id": "u-001"
   },
   "agent": {
     "name": "agent-x",
-    "version": "0.1"
+    "version": "0.1",
+    "model": "gpt-like"
   },
   "intent": {
     "intent_id": "i-001",
@@ -24,18 +25,19 @@
     "action_type": "publish"
   },
   "action": {
-    "action_id": "a-002",
-    "params_digest": "sha256:params2"
+    "action_id": "a-001",
+    "params_digest": "sha256:params"
   },
-  "context_digest": "sha256:context2",
+  "context_digest": "sha256:context",
+  "output_digest": "sha256:output",
   "decision": {
-    "effect": "DENY",
-    "reason_code": "POLICY_VIOLATION"
+    "effect": "ALLOW",
+    "reason_code": "OK"
   },
   "signature": {
     "alg": "Ed25519",
     "kid": "impl-kid-001",
-    "sig": "qTfRST509i6UxltMweIyC6Lzm7NPxDahsctwXsIUH0CNqD7/ATIxqUmGcA/pt9KYvm2G54fMrX+1FyyLU6jUAw==",
+    "sig": "NFX82txgciO+CcmKkCTkIdD/lwXtmwHLkDQ3TXtp/Ql5IokayK/XguArobhbbFaZxQB4w3BxwoOjXbqZfLbBAg==",
     "cert": {
       "cert_version": "0.1",
       "cert_id": "c-e75c3c83-8595-4391-bf96-32169707f386",

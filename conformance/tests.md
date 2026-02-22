@@ -41,3 +41,7 @@ An implementation is SVS-Compatible v0.1 if it passes ALL tests below.
 ## T10 Completeness accounting
 - Request count must match receipt count for protected actions.
 - Expected: missing receipts raise alert.
+
+## Implementation Notes (v0.1 runner)
+- Offline-verifiable now: T02, T03, T04, T05, T06, T08 (+ cert-chain extras X01..X03)
+- Requires action boundary demo: T01, T07, T09, T10

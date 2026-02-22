@@ -7,11 +7,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
       - name: Verify repository structure
         run: |
           test -f spec/receipt-v0.1.md
           test -f schemas/receipt.v0.1.json
           test -f conformance/tests.md
-          rm -f conformance/state/seen_nonces.json
+          test -f conformance/run.sh
+      - name: Run conformance tests
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          python -m pip install -U pip
           python -m pip install cryptography
-          python tools/verify_receipt.py examples/signed/allow.receipt.signed.json
+          bash conformance/run.sh
