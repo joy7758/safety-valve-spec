@@ -44,5 +44,15 @@ cat conformance/report.json
 ```
 
 Note:
-- T01/T07/T09/T10 require an action-boundary demo (gateway/sidecar/SDK).
-- They are `SKIP` in the v0.1 runner for now.
+- T01/T07/T09/T10 are now covered by the gateway action-boundary demo in `conformance/run.sh`.
+
+## Gateway Demo (action-boundary)
+Run the gateway:
+```bash
+source .venv/bin/activate
+python -m uvicorn demo.gateway_server:app --host 127.0.0.1 --port 8089
+```
+Conformance runner will start/stop it automatically:
+```bash
+bash conformance/run.sh
+```

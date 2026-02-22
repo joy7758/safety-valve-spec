@@ -22,5 +22,5 @@ jobs:
           python -m venv .venv
           source .venv/bin/activate
           python -m pip install -U pip
-          python -m pip install cryptography
+          python -m pip install cryptography fastapi uvicorn fastapi uvicorn
           bash conformance/run.sh

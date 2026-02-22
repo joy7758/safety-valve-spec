@@ -1,7 +1,7 @@
 {
   "receipt_version": "0.1",
   "receipt_id": "r-allow-001",
-  "issued_at": "2026-02-22T11:22:54Z",
+  "issued_at": "2026-02-22T11:29:07Z",
   "nonce": "n-abc12345",
   "actor": {
     "type": "user",

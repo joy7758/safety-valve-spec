@@ -1,0 +1,92 @@
+{
+  "version": "0.1",
+  "started_at": 1771759748.370789,
+  "results": [
+    {
+      "id": "T01",
+      "status": "PASS",
+      "note": "gateway enforces missing receipt",
+      "ts": 1771759748.4278982
+    },
+    {
+      "id": "T02",
+      "status": "PASS",
+      "note": "valid signed receipt verified",
+      "ts": 1771759748.478292
+    },
+    {
+      "id": "T03",
+      "status": "PASS",
+      "note": "invalid receipt signature rejected",
+      "ts": 1771759748.528651
+    },
+    {
+      "id": "T04a",
+      "status": "PASS",
+      "note": "tamper effect rejected",
+      "ts": 1771759748.5788648
+    },
+    {
+      "id": "T04b",
+      "status": "PASS",
+      "note": "tamper tool rejected",
+      "ts": 1771759748.628947
+    },
+    {
+      "id": "T05",
+      "status": "PASS",
+      "note": "replay detected",
+      "ts": 1771759748.712063
+    },
+    {
+      "id": "T06",
+      "status": "PASS",
+      "note": "time window enforced",
+      "ts": 1771759748.761651
+    },
+    {
+      "id": "T07",
+      "status": "PASS",
+      "note": "bypass requires receipt",
+      "ts": 1771759748.8206122
+    },
+    {
+      "id": "T08",
+      "status": "PASS",
+      "note": "deny receipt verified",
+      "ts": 1771759748.870347
+    },
+    {
+      "id": "T09",
+      "status": "PASS",
+      "note": "degrade preview-only enforced",
+      "ts": 1771759749.058379
+    },
+    {
+      "id": "T10",
+      "status": "PASS",
+      "note": "metrics reconciled",
+      "ts": 1771759749.2137291
+    },
+    {
+      "id": "X01",
+      "status": "PASS",
+      "note": "missing cert rejected",
+      "ts": 1771759749.2600992
+    },
+    {
+      "id": "X02",
+      "status": "PASS",
+      "note": "wrong issuer rejected",
+      "ts": 1771759749.305692
+    },
+    {
+      "id": "X03",
+      "status": "PASS",
+      "note": "forged cert signature rejected",
+      "ts": 1771759749.3533492
+    }
+  ],
+  "finished_at": 1771759749.367727,
+  "overall": "PASS"
+}
