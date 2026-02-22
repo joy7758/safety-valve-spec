@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+ENV/
+.env
+pip-wheel-metadata/
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Conformance runtime artifacts
+conformance/state/
+conformance/report.json
+
+# Demo logs
+*.log
+conformance/state/gateway.log
+
+# Keys (never commit secrets)
+keys/*.sk.b64
+keys/*.pk.b64
+keys/*.kid
+keys/*.cert.json
+
+# Signed examples can be regenerated (optional)
+# examples/signed/
