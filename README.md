@@ -141,11 +141,17 @@ cd examples/reference-pack
 make demo
 ```
 
-Quick demo with proofs (runs conformance and copies artifacts to `examples/reference-pack/artifacts/`):
+Quick demo with proofs (runs conformance, copies artifacts to `examples/reference-pack/artifacts/`, and verifies attestation via `svs-verify`):
 ```bash
 cd examples/reference-pack
 DEMO_WITH_CONFORMANCE=1 make demo
 ```
+
+Artifacts include:
+- `svs-compat.attestation.json`
+- `svs-compat.badge.svg`
+- `report.json`
+- `svs_verify_attestation.txt`
 
 Run full conformance in Docker:
 ```bash

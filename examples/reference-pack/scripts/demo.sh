@@ -49,6 +49,10 @@ if [ "${DEMO_WITH_CONFORMANCE:-0}" = "1" ]; then
   test -f dist/svs-compat.badge.md && cp -f dist/svs-compat.badge.md "$ART_DIR/" || true
 
   echo "Artifacts copied to: $ART_DIR/"
+
+# Verify attestation using standalone svs-verify
+bash examples/reference-pack/scripts/verify_with_svs_verify.sh
+
 else
   echo "Skipped conformance. To include proofs: set DEMO_WITH_CONFORMANCE=1"
 fi

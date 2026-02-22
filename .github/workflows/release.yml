@@ -24,12 +24,17 @@ jobs:
           python -m venv .venv
           source .venv/bin/activate
           python -m pip install -U pip
-          python -m pip install cryptography fastapi uvicorn
+          python -m pip install cryptography fastapi uvicorn build
 
       - name: Run conformance (generates dist artifacts)
         run: |
           source .venv/bin/activate
           bash conformance/run.sh
+
+      - name: Build svs-verify wheel
+        run: |
+          source .venv/bin/activate
+          python -m build packages/svs_verify --outdir release/pkg
 
       - name: Package assets
         run: |
@@ -46,6 +51,7 @@ jobs:
         with:
           files: |
             release/svs-release-${{ github.ref_name }}.zip
+            release/pkg/*
             release/report.json
             release/svs-compat.attestation.json
             release/svs-compat.latest.json

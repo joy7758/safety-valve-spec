@@ -51,3 +51,11 @@ jobs:
           python -m pip install -U pip
           python -m pip install -e packages/svs_verify
           svs-verify --help
+
+      - name: Verify attestation using svs-verify
+        run: |
+          python -m venv .venv_pkg2
+          source .venv_pkg2/bin/activate
+          python -m pip install -U pip
+          python -m pip install -e packages/svs_verify
+          svs-verify attestation dist/svs-compat.attestation.json --root-pk-file keys/root_ca.pk.b64
