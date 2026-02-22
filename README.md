@@ -81,3 +81,26 @@ After conformance passes, SVS can emit a signed compatibility attestation:
 - Verify: `python tools/compat_verify.py dist/svs-compat.attestation.json`
 
 Conformance runner does this automatically and outputs `dist/svs-compat.attestation.json`.
+
+<!-- SVS_REUSABLE_WORKFLOW_BEGIN -->
+## Reusable Conformance Workflow (for other repos)
+
+Other repositories can reuse this conformance workflow:
+
+```yaml
+name: svs-check
+on:
+  push:
+  pull_request:
+
+jobs:
+  svs:
+    uses: <OWNER>/<REPO>/.github/workflows/svs-conformance.yml@<REF>
+```
+
+It uploads artifacts:
+- conformance/report.json
+- dist/svs-compat.attestation.json
+- dist/svs-compat.badge.svg
+- dist/svs-compat.badge.md
+<!-- SVS_REUSABLE_WORKFLOW_END -->

@@ -1,0 +1,66 @@
+name: svs-conformance
+
+on:
+  workflow_call:
+    inputs:
+      python_version:
+        required: false
+        type: string
+        default: "3.11"
+      time_window_seconds:
+        required: false
+        type: number
+        default: 300
+    outputs:
+      overall:
+        description: "Overall result from conformance/report.json"
+        value: ${{ jobs.conformance.outputs.overall }}
+
+jobs:
+  conformance:
+    runs-on: ubuntu-latest
+    outputs:
+      overall: ${{ steps.read_report.outputs.overall }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python_version }}
+
+      - name: Install deps
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          python -m pip install -U pip
+          python -m pip install cryptography fastapi uvicorn
+
+      - name: Run conformance
+        env:
+          SVS_TIME_WINDOW: ${{ inputs.time_window_seconds }}
+        run: |
+          source .venv/bin/activate
+          # If you later read SVS_TIME_WINDOW in verify config, wire it here.
+          bash conformance/run.sh
+
+      - name: Read report output
+        id: read_report
+        run: |
+          overall="$(python - <<'PY'
+import json
+r = json.load(open('conformance/report.json', 'r', encoding='utf-8'))
+print(r.get('overall', 'UNKNOWN'))
+PY
+          )"
+          echo "overall=$overall" >> "$GITHUB_OUTPUT"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: svs-artifacts
+          path: |
+            conformance/report.json
+            dist/svs-compat.attestation.json
+            dist/svs-compat.badge.svg
+            dist/svs-compat.badge.md
