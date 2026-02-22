@@ -12,6 +12,8 @@ services:
     working_dir: /work
 
   runner:
+    environment:
+      DEMO_WITH_CONFORMANCE: "0"
     build:
       context: ../..
       dockerfile: examples/reference-pack/Dockerfile

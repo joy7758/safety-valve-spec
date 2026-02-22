@@ -141,6 +141,12 @@ cd examples/reference-pack
 make demo
 ```
 
+Quick demo with proofs (runs conformance and copies artifacts to `examples/reference-pack/artifacts/`):
+```bash
+cd examples/reference-pack
+DEMO_WITH_CONFORMANCE=1 make demo
+```
+
 Run full conformance in Docker:
 ```bash
 cd examples/reference-pack
