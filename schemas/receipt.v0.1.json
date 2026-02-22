@@ -159,6 +159,7 @@
             "SVS_CERT_INVALID_SIGNATURE",
             "SVS_CERT_MISSING_CERT",
             "SVS_CERT_MISSING_SUBJECT_PK",
+            "SVS_CERT_REVOKED",
             "SVS_CERT_WRONG_ISSUER",
             "SVS_DEGRADE_PREVIEW_ONLY",
             "SVS_EFFECT_UNKNOWN",

@@ -1,7 +1,7 @@
 {
   "receipt_version": "0.1",
-  "receipt_id": "r-unknown-c7252a61-fe0c-451b-912a-0f5ec7972f98",
-  "issued_at": "2026-02-22T11:38:48Z",
+  "receipt_id": "r-unknown-e72d75e3-988b-491e-924e-d8d1d0c5f6c7",
+  "issued_at": "2026-02-22T11:46:48Z",
   "nonce": "n-unknown-12345",
   "actor": {
     "type": "user",
@@ -37,7 +37,7 @@
   "signature": {
     "alg": "Ed25519",
     "kid": "impl-kid-001",
-    "sig": "46Is8Oi3rPgmna0fEvhGR4Dac8gGAmeguNYLKJHwduJg+AqGAhcZMGieBcZqz7wq/LJ5j+dizkjwNXaDAP9qAQ==",
+    "sig": "HZ3E520BbJYPM9jX8jZ9p0m+cdoWujW8qBU4ub1MkknLBH78Olcpz0VVKlzZkIKi2aAX91o3E4CRFQ5oHo19Ag==",
     "cert": {
       "cert_version": "0.1",
       "cert_id": "c-e75c3c83-8595-4391-bf96-32169707f386",

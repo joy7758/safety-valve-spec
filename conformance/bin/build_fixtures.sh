@@ -39,3 +39,8 @@ python conformance/bin/mutate_receipt.py examples/signed/allow.receipt.signed.js
 python conformance/bin/mutate_receipt.py examples/signed/allow.receipt.signed.json conformance/vectors/expire_receipt.json expire_receipt
 python conformance/bin/mutate_receipt.py examples/signed/allow.receipt.signed.json conformance/vectors/forge_receipt_sig.json forge_receipt_sig
 python conformance/bin/mutate_receipt.py examples/signed/allow.receipt.signed.json conformance/vectors/forge_cert_sig.json forge_cert_sig
+python conformance/bin/make_unknown_reason.py examples/allow.receipt.json conformance/vectors/unknown_reason.base.json
+python tools/receipt_sign.py conformance/vectors/unknown_reason.base.json conformance/vectors/unknown_reason.signed.json
+
+# Build active CRL (revokes current impl key)
+bash conformance/bin/build_crl.sh

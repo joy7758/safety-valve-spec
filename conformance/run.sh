@@ -8,6 +8,8 @@ source conformance/assert.sh
 
 reset_replay_db
 conformance/bin/build_fixtures.sh
+# Keep CRL inactive for baseline tests; X05 enables it explicitly.
+rm -f conformance/vectors/crl.active.json
 
 # Start gateway demo
 GATEWAY_LOG="conformance/state/gateway.log"
@@ -228,6 +230,13 @@ record "X03" "PASS" "forged cert signature rejected"
 reset_replay_db
 expect_fail_code "X04" conformance/vectors/unknown_reason.signed.json "FAIL: SVS_POLICY_VIOLATION"
 record "X04" "PASS" "unknown reason_code rejected by schema enum"
+
+
+# X05 Revoked certificate must fail
+reset_replay_db
+bash conformance/bin/build_crl.sh
+expect_fail_code "X05" examples/signed/allow.receipt.signed.json "FAIL: SVS_CERT_REVOKED"
+record "X05" "PASS" "revoked cert rejected"
 
 python - <<'PY'
 import json

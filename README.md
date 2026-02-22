@@ -59,3 +59,8 @@ bash conformance/run.sh
 
 ### Recommended transport
 Use `X-SVS-Receipt-B64` header (base64-encoded UTF-8 JSON) to avoid quoting issues across shells/CI.
+
+## Revocation (CRL)
+SVS supports CRL v0.1 (signed by Root CA). Verifiers may load an active CRL and reject revoked `kid`s.
+- Spec: `spec/crl-v0.1.md`
+- Tooling: `tools/crl_generate.py`, `tools/crl_verify.py`

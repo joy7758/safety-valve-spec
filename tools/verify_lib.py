@@ -7,6 +7,10 @@ try:
   from tools.schema_check import check_reason_code
 except ModuleNotFoundError:
   from schema_check import check_reason_code
+try:
+  from tools.crl_verify import verify_crl
+except ModuleNotFoundError:
+  from crl_verify import verify_crl
 
 try:
   from tools.svs_crypto import b64d, canonical_json, parse_rfc3339, utcnow, verify_ed25519
@@ -18,6 +22,7 @@ REPLAY_DB = "conformance/state/seen_nonces.json"
 
 @dataclass
 class VerifyConfig:
+  crl_path: str | None = "conformance/vectors/crl.active.json"
   time_window_seconds: int = 300
   replay_db_path: str = REPLAY_DB
 
@@ -77,6 +82,24 @@ def verify_receipt_obj(r: dict, cfg: VerifyConfig | None = None):
     return False, "SVS_CERT_EXPIRED"
   if not (ia <= now <= ea):
     return False, "SVS_CERT_EXPIRED"
+
+  # CRL revocation (if present)
+  if cfg.crl_path:
+    try:
+      import json as _json
+      import os as _os
+      if _os.path.exists(cfg.crl_path):
+        crl = _json.load(open(cfg.crl_path, "r", encoding="utf-8"))
+        ok, code = verify_crl(crl)
+        if not ok:
+          return False, code
+        subject_kid = sig.get("kid")
+        for e in crl.get("entries", []):
+          if e.get("subject_kid") == subject_kid:
+            return False, "SVS_CERT_REVOKED"
+    except Exception:
+      # If CRL is malformed/unreadable, treat as trust failure
+      return False, "SVS_CERT_INVALID_SIGNATURE"
 
   # Receipt time window
   try:
