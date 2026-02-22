@@ -135,6 +135,8 @@ Release assets include:
 <!-- SVS_REFERENCE_PACK_BEGIN -->
 ## Reference Pack (Docker Compose)
 
+If you see `make: docker: No such file or directory`, the compose binary name is mismatched. Run `make doctor`.
+
 Quick demo (gateway + signed receipt client):
 ```bash
 cd examples/reference-pack

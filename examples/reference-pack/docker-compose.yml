@@ -13,7 +13,7 @@ services:
 
   runner:
     environment:
-      DEMO_WITH_CONFORMANCE: "0"
+      DEMO_WITH_CONFORMANCE: "${DEMO_WITH_CONFORMANCE:-0}"
     build:
       context: ../..
       dockerfile: examples/reference-pack/Dockerfile
