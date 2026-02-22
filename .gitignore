@@ -32,3 +32,5 @@ keys/*.cert.json
 
 # Signed examples can be regenerated (optional)
 # examples/signed/
+dist/svs-compat.badge.svg
+dist/svs-compat.badge.md

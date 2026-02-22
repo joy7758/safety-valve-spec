@@ -22,7 +22,7 @@ jobs:
           python -m venv .venv
           source .venv/bin/activate
           python -m pip install -U pip
-          python -m pip install cryptography fastapi uvicorn fastapi uvicorn
+          python -m pip install cryptography fastapi uvicorn
           bash conformance/run.sh
 
       - name: Ensure working tree clean
@@ -33,3 +33,9 @@ jobs:
       - name: Ensure attestation exists
         run: |
           test -f dist/svs-compat.attestation.json
+
+      - name: Ensure badge exists
+        run: |
+          test -f dist/svs-compat.attestation.json
+          test -f dist/svs-compat.badge.svg
+          test -f dist/svs-compat.badge.md

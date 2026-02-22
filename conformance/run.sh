@@ -260,3 +260,4 @@ PY
 # Emit and verify compatibility attestation
 python tools/compat_emit.py --report conformance/report.json --out dist/svs-compat.attestation.json
 python tools/compat_verify.py dist/svs-compat.attestation.json
+python tools/badge_generate.py --att dist/svs-compat.attestation.json --svg dist/svs-compat.badge.svg --md dist/svs-compat.badge.md

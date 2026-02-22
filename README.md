@@ -1,5 +1,14 @@
 # Safety Valve Spec (SVS)
 
+<!-- SVS_BADGE_BEGIN -->
+![SVS Compatible](dist/svs-compat.badge.svg)
+
+```bash
+python tools/compat_verify.py dist/svs-compat.attestation.json
+```
+<!-- SVS_BADGE_END -->
+
+
 A minimal, verifiable **Audit Receipt** standard + **Conformance Tests** for AI/Agent actions.
 
 ## What this is

@@ -37,7 +37,7 @@
   "signature": {
     "alg": "Ed25519",
     "kid": "impl-kid-001",
-    "sig": "xiHror1j36shLtOiRCl0XTYh1IPZBacIjvMYaMe6/8uBrVmPnMMR2Ftyyr67kr67eaKURphcSRLNnFQPgxLCAA==",
+    "sig": "p0g+LO8QiVE1V8ADkkqUk4c2/lBhh4QkTUwvrizJX1H+J4RZ3YcaIEVMPmyV1eup/BWaKNhnwTQ4MLBSjnzADQ==",
     "cert": {
       "cert_version": "0.1",
       "cert_id": "c-e75c3c83-8595-4391-bf96-32169707f386",
