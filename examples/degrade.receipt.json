@@ -1,0 +1,20 @@
+{
+  "receipt_version": "0.1",
+  "receipt_id": "r-degrade-001",
+  "issued_at": "2026-02-22T00:00:00Z",
+  "nonce": "n-deg12345",
+  "actor": { "type": "user", "id": "u-001" },
+  "agent": { "name": "agent-x", "version": "0.1" },
+  "intent": { "intent_id": "i-001", "scope": "publish_post" },
+  "policy": { "policy_id": "p-001", "policy_version": "0.1" },
+  "tool": { "name": "content_api", "action_type": "publish" },
+  "action": { "action_id": "a-003", "params_digest": "sha256:params3" },
+  "context_digest": "sha256:context3",
+  "output_digest": "sha256:output3",
+  "decision": {
+    "effect": "DEGRADE",
+    "reason_code": "NEEDS_HUMAN_CONFIRM",
+    "constraints": { "requires_human_confirm": true }
+  },
+  "signature": { "alg": "Ed25519", "kid": "k-001", "sig": "BASE64_SIGNATURE_PLACEHOLDER" }
+}

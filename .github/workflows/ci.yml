@@ -1,0 +1,14 @@
+name: ci
+on:
+  push:
+  pull_request:
+jobs:
+  basic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify repository structure
+        run: |
+          test -f spec/receipt-v0.1.md
+          test -f schemas/receipt.v0.1.json
+          test -f conformance/tests.md
