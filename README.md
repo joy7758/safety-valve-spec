@@ -5,6 +5,7 @@
 
 - Standard ID / 标准编号: `RR-SVS`
 - Repository / 仓库名: `safety-valve-spec`
+- A/B Recommended Variant / 推荐版本: `B`
 
 ### EN Summary / 英文摘要
 Action-boundary receipt and conformance specification for AI agent safety controls.
@@ -24,6 +25,11 @@ Action-boundary receipt and conformance specification for AI agent safety contro
 - safety-valve-spec RR-SVS 标准 规范
 - safety-valve-spec safety-valve agent-safety 仓库
 - RR-SVS 参考实现 红岩 宪章
+
+### A/B Hero Variants / 首屏 A/B 版本
+- Variant A (Citation-First) / 引用优先: [`docs/readme-ab/README_HERO_A_CN_EN.md`](docs/readme-ab/README_HERO_A_CN_EN.md)
+- Variant B (Adoption-First) / 落地优先: [`docs/readme-ab/README_HERO_B_CN_EN.md`](docs/readme-ab/README_HERO_B_CN_EN.md)
+- Experiment Window / 观测窗口: 14 days
 
 ### Quick Links / 快速入口
 - Governance Hub / 总入口: https://github.com/joy7758/RedRock-Constitution
