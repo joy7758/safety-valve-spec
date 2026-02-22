@@ -61,6 +61,4 @@ PY
           name: svs-artifacts
           path: |
             conformance/report.json
-            dist/svs-compat.attestation.json
-            dist/svs-compat.badge.svg
-            dist/svs-compat.badge.md
+            dist/*

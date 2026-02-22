@@ -1,14 +1,16 @@
 # Safety Valve Spec (SVS)
 
 ## Quick Copy-Paste
-- Latest release: `v0.1.3`
+- Latest release: `v0.1.4`
 - Changelog: `CHANGELOG.md`
 - Announcement: `docs/ANNOUNCE_v0.1.2.md`
 
 One-command demo + proofs:
 ```bash
 git clone https://github.com/joy7758/safety-valve-spec.git
-cd safety-valve-spec/examples/reference-pack
+cd safety-valve-spec
+git checkout v0.1.4
+cd examples/reference-pack
 DEMO_WITH_CONFORMANCE=1 make demo
 ```
 
