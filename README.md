@@ -122,3 +122,12 @@ Release assets include:
 - svs-compat.badge.svg
 - svs-compat.badge.md
 <!-- SVS_RELEASE_END -->
+
+<!-- SVS_INTEGRATION_BEGIN -->
+## Integration
+
+- Guide: `spec/integration-guide-v0.1.md`
+- Recommended pattern: **Gateway/Proxy** (hardest to bypass)
+- Receipt transport: `X-SVS-Receipt-B64`
+
+<!-- SVS_INTEGRATION_END -->
