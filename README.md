@@ -2,6 +2,7 @@
 
 ## Quick Copy-Paste
 - Latest release: `v0.1.4`
+- Pinned issue: https://github.com/joy7758/safety-valve-spec/issues/1
 - Changelog: `CHANGELOG.md`
 - Announcement: `docs/ANNOUNCE_v0.1.2.md`
 
