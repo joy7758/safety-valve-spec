@@ -25,6 +25,15 @@ jobs:
           python -m pip install cryptography fastapi uvicorn
           bash conformance/run.sh
 
+      - name: Generate registry exports (deterministic)
+        run: |
+          python3 tools/registry_export.py
+          python3 tools/registry_export.py
+          test -f registry/svs-types-v0.2.json
+          test -f registry/svs-reason-codes-v0.2.json
+          test -f registry/svs-profiles-v0.2.json
+          git diff --exit-code -- registry/svs-types-v0.2.json registry/svs-reason-codes-v0.2.json registry/svs-profiles-v0.2.json
+
       - name: Ensure working tree clean
         run: |
           git status --porcelain

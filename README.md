@@ -188,3 +188,12 @@ pip install -e packages/svs_verify
 svs-verify --help
 ```
 <!-- SVS_TOOLING_END -->
+
+<!-- SVS_REGISTRY_V02_BEGIN -->
+## Registry Export (v0.2)
+
+- Spec: `spec/registry-export-v0.2.md`
+- Export pack: `registry/README.md`
+- Registry export is deterministic and committed (`registry/*.json`).
+
+<!-- SVS_REGISTRY_V02_END -->

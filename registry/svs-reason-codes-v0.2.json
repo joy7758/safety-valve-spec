@@ -1,0 +1,133 @@
+{
+  "domains": [
+    {
+      "codes": [
+        "SVS_CERT_EXPIRED",
+        "SVS_CERT_INVALID_SIGNATURE",
+        "SVS_CERT_MISSING_CERT",
+        "SVS_CERT_MISSING_SUBJECT_PK",
+        "SVS_CERT_REVOKED",
+        "SVS_CERT_WRONG_ISSUER"
+      ],
+      "domain": "Certificate / Trust"
+    },
+    {
+      "codes": [
+        "SVS_DEGRADE_PREVIEW_ONLY",
+        "SVS_EFFECT_UNKNOWN",
+        "SVS_GATE_MISSING_RECEIPT",
+        "SVS_GATE_RECEIPT_B64_PARSE_ERROR",
+        "SVS_GATE_RECEIPT_PARSE_ERROR",
+        "SVS_POLICY_ALLOW",
+        "SVS_POLICY_NEEDS_HUMAN_CONFIRM",
+        "SVS_POLICY_VIOLATION"
+      ],
+      "domain": "Policy / Gate"
+    },
+    {
+      "codes": [
+        "SVS_SIG_INVALID_SIGNATURE",
+        "SVS_SIG_MISSING_RECEIPT_SIG",
+        "SVS_SIG_UNSUPPORTED_ALG"
+      ],
+      "domain": "Receipt / Signature"
+    },
+    {
+      "codes": [
+        "SVS_REPLAY_DETECTED",
+        "SVS_TIME_EXPIRED_RECEIPT",
+        "SVS_TIME_RECEIPT_TIME_PARSE_ERROR"
+      ],
+      "domain": "Replay / Time"
+    }
+  ],
+  "meta": {
+    "export_version": "0.2",
+    "generated_at": "1970-01-01T00:00:00Z",
+    "source_digest_sha256": "2cf4990bd81c270764419a2300fed3968630ad6ea43419cb930bef16ea0d057a",
+    "source_version": "0.1",
+    "spec_id": "svs"
+  },
+  "reason_codes": [
+    {
+      "code": "SVS_CERT_EXPIRED",
+      "domain": "Certificate / Trust"
+    },
+    {
+      "code": "SVS_CERT_INVALID_SIGNATURE",
+      "domain": "Certificate / Trust"
+    },
+    {
+      "code": "SVS_CERT_MISSING_CERT",
+      "domain": "Certificate / Trust"
+    },
+    {
+      "code": "SVS_CERT_MISSING_SUBJECT_PK",
+      "domain": "Certificate / Trust"
+    },
+    {
+      "code": "SVS_CERT_REVOKED",
+      "domain": "Certificate / Trust"
+    },
+    {
+      "code": "SVS_CERT_WRONG_ISSUER",
+      "domain": "Certificate / Trust"
+    },
+    {
+      "code": "SVS_DEGRADE_PREVIEW_ONLY",
+      "domain": "Policy / Gate"
+    },
+    {
+      "code": "SVS_EFFECT_UNKNOWN",
+      "domain": "Policy / Gate"
+    },
+    {
+      "code": "SVS_GATE_MISSING_RECEIPT",
+      "domain": "Policy / Gate"
+    },
+    {
+      "code": "SVS_GATE_RECEIPT_B64_PARSE_ERROR",
+      "domain": "Policy / Gate"
+    },
+    {
+      "code": "SVS_GATE_RECEIPT_PARSE_ERROR",
+      "domain": "Policy / Gate"
+    },
+    {
+      "code": "SVS_POLICY_ALLOW",
+      "domain": "Policy / Gate"
+    },
+    {
+      "code": "SVS_POLICY_NEEDS_HUMAN_CONFIRM",
+      "domain": "Policy / Gate"
+    },
+    {
+      "code": "SVS_POLICY_VIOLATION",
+      "domain": "Policy / Gate"
+    },
+    {
+      "code": "SVS_REPLAY_DETECTED",
+      "domain": "Replay / Time"
+    },
+    {
+      "code": "SVS_SIG_INVALID_SIGNATURE",
+      "domain": "Receipt / Signature"
+    },
+    {
+      "code": "SVS_SIG_MISSING_RECEIPT_SIG",
+      "domain": "Receipt / Signature"
+    },
+    {
+      "code": "SVS_SIG_UNSUPPORTED_ALG",
+      "domain": "Receipt / Signature"
+    },
+    {
+      "code": "SVS_TIME_EXPIRED_RECEIPT",
+      "domain": "Replay / Time"
+    },
+    {
+      "code": "SVS_TIME_RECEIPT_TIME_PARSE_ERROR",
+      "domain": "Replay / Time"
+    }
+  ]
+}

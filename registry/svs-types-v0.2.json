@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "export_version": "0.2",
+    "generated_at": "1970-01-01T00:00:00Z",
+    "source_digest_sha256": "2cf4990bd81c270764419a2300fed3968630ad6ea43419cb930bef16ea0d057a",
+    "source_version": "0.1",
+    "spec_id": "svs"
+  },
+  "types": [
+    {
+      "optional_fields": [
+        {
+          "name": "params_schema_id",
+          "spec": "string"
+        }
+      ],
+      "purpose": "Describe the intended operation.",
+      "required_fields": [
+        {
+          "name": "action_id",
+          "spec": "string"
+        },
+        {
+          "name": "params_digest",
+          "spec": "string  (e.g., \"sha256:<...>\")"
+        }
+      ],
+      "source_type_id": "svs:Action:v0.1",
+      "type_id": "svs:Action:v0.2",
+      "type_name": "Action"
+    },
+    {
+      "optional_fields": [
+        {
+          "name": "tenant_id",
+          "spec": "string"
+        },
+        {
+          "name": "display",
+          "spec": "string"
+        }
+      ],
+      "purpose": "Identify who initiates or owns an action.",
+      "required_fields": [
+        {
+          "name": "type",
+          "spec": "string  (e.g., \"user\" | \"system\" | \"service\")"
+        },
+        {
+          "name": "id",
+          "spec": "string"
+        }
+      ],
+      "source_type_id": "svs:Actor:v0.1",
+      "type_id": "svs:Actor:v0.2",
+      "type_name": "Actor"
+    },
+    {
+      "optional_fields": [
+        {
+          "name": "model",
+          "spec": "string"
+        },
+        {
+          "name": "framework",
+          "spec": "string"
+        },
+        {
+          "name": "build_id",
+          "spec": "string"
+        }
+      ],
+      "purpose": "Identify the AI/agent runtime.",
+      "required_fields": [
+        {
+          "name": "name",
+          "spec": "string"
+        },
+        {
+          "name": "version",
+          "spec": "string"
+        }
+      ],
+      "source_type_id": "svs:Agent:v0.1",
+      "type_id": "svs:Agent:v0.2",
+      "type_name": "Agent"
+    },
+    {
+      "optional_fields": [
+        {
+          "name": "output_digest",
+          "spec": "string (required for ALLOW/DEGRADE by policy)"
+        },
+        {
+          "name": "evidence_refs",
+          "spec": "EvidenceRef[]"
+        }
+      ],
+      "purpose": "Verifiable enforcement receipt.",
+      "required_fields": [
+        {
+          "name": "receipt_version",
+          "spec": "\"0.1\""
+        },
+        {
+          "name": "receipt_id",
+          "spec": "string"
+        },
+        {
+          "name": "issued_at",
+          "spec": "RFC3339 UTC"
+        },
+        {
+          "name": "nonce",
+          "spec": "string"
+        },
+        {
+          "name": "actor",
+          "spec": "Actor"
+        },
+        {
+          "name": "agent",
+          "spec": "Agent"
+        },
+        {
+          "name": "intent",
+          "spec": "IntentAnchor"
+        },
+        {
+          "name": "policy",
+          "spec": "Policy"
+        },
+        {
+          "name": "tool",
+          "spec": "Tool"
+        },
+        {
+          "name": "action",
+          "spec": "Action"
+        },
+        {
+          "name": "context_digest",
+          "spec": "string"
+        },
+        {
+          "name": "decision",
+          "spec": "PolicyDecision"
+        },
+        {
+          "name": "signature",
+          "spec": "object (Ed25519 + cert mode)"
+        }
+      ],
+      "source_type_id": "svs:AuditReceipt:v0.1",
+      "type_id": "svs:AuditReceipt:v0.2",
+      "type_name": "AuditReceipt"
+    },
+    {
+      "optional_fields": [],
+      "purpose": "Hash of relevant input context.",
+      "required_fields": [
+        {
+          "name": "context_digest",
+          "spec": "string"
+        }
+      ],
+      "source_type_id": "svs:ContextDigest:v0.1",
+      "type_id": "svs:ContextDigest:v0.2",
+      "type_name": "ContextDigest"
+    },
+    {
+      "optional_fields": [
+        {
+          "name": "uri",
+          "spec": "string"
+        },
+        {
+          "name": "note",
+          "spec": "string"
+        }
+      ],
+      "purpose": "Reference supporting evidence (optional but recommended for high risk).",
+      "required_fields": [
+        {
+          "name": "evidence_type",
+          "spec": "string"
+        },
+        {
+          "name": "digest",
+          "spec": "string"
+        }
+      ],
+      "source_type_id": "svs:EvidenceRef:v0.1",
+      "type_id": "svs:EvidenceRef:v0.2",
+      "type_name": "EvidenceRef"
+    },
+    {
+      "optional_fields": [
+        {
+          "name": "scope",
+          "spec": "string"
+        },
+        {
+          "name": "parent_intent_id",
+          "spec": "string"
+        }
+      ],
+      "purpose": "Bind long-horizon goals / task scope.",
+      "required_fields": [
+        {
+          "name": "intent_id",
+          "spec": "string"
+        }
+      ],
+      "source_type_id": "svs:IntentAnchor:v0.1",
+      "type_id": "svs:IntentAnchor:v0.2",
+      "type_name": "IntentAnchor"
+    },
+    {
+      "optional_fields": [
+        {
+          "name": "policy_hash",
+          "spec": "string"
+        }
+      ],
+      "purpose": "Identify the policy set used.",
+      "required_fields": [
+        {
+          "name": "policy_id",
+          "spec": "string"
+        },
+        {
+          "name": "policy_version",
+          "spec": "string"
+        }
+      ],
+      "source_type_id": "svs:Policy:v0.1",
+      "type_id": "svs:Policy:v0.2",
+      "type_name": "Policy"
+    },
+    {
+      "optional_fields": [
+        {
+          "name": "constraints",
+          "spec": "object"
+        }
+      ],
+      "purpose": "The enforced outcome.",
+      "required_fields": [
+        {
+          "name": "effect",
+          "spec": "\"ALLOW\" | \"DENY\" | \"DEGRADE\""
+        },
+        {
+          "name": "reason_code",
+          "spec": "string  (see `spec/reason-codes-v0.1.md`)"
+        }
+      ],
+      "source_type_id": "svs:PolicyDecision:v0.1",
+      "type_id": "svs:PolicyDecision:v0.2",
+      "type_name": "PolicyDecision"
+    },
+    {
+      "optional_fields": [
+        {
+          "name": "endpoint",
+          "spec": "string"
+        },
+        {
+          "name": "permission_scope",
+          "spec": "string"
+        }
+      ],
+      "purpose": "Identify the execution target/system.",
+      "required_fields": [
+        {
+          "name": "name",
+          "spec": "string"
+        },
+        {
+          "name": "action_type",
+          "spec": "string"
+        }
+      ],
+      "source_type_id": "svs:Tool:v0.1",
+      "type_id": "svs:Tool:v0.2",
+      "type_name": "Tool"
+    }
+  ]
+}

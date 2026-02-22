@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "export_version": "0.2",
+    "generated_at": "1970-01-01T00:00:00Z",
+    "source_digest_sha256": "2cf4990bd81c270764419a2300fed3968630ad6ea43419cb930bef16ea0d057a",
+    "source_version": "0.1",
+    "spec_id": "svs"
+  },
+  "profiles": [
+    {
+      "constraints": [
+        "No receipt -> no action",
+        "Bypass endpoints enforce the same receipt checks",
+        "DEGRADE constraints are enforced at the action boundary"
+      ],
+      "profile_id": "svs:ActionBoundaryGate:v0.2",
+      "reason_codes": [
+        "SVS_DEGRADE_PREVIEW_ONLY",
+        "SVS_EFFECT_UNKNOWN",
+        "SVS_GATE_MISSING_RECEIPT",
+        "SVS_GATE_RECEIPT_B64_PARSE_ERROR",
+        "SVS_GATE_RECEIPT_PARSE_ERROR",
+        "SVS_POLICY_ALLOW",
+        "SVS_POLICY_NEEDS_HUMAN_CONFIRM",
+        "SVS_POLICY_VIOLATION"
+      ],
+      "title": "ActionBoundaryGate",
+      "type_ids": [
+        "svs:Action:v0.2",
+        "svs:Actor:v0.2",
+        "svs:Agent:v0.2",
+        "svs:AuditReceipt:v0.2",
+        "svs:PolicyDecision:v0.2",
+        "svs:Tool:v0.2"
+      ]
+    },
+    {
+      "constraints": [
+        "Conformance overall MUST be PASS before attestation",
+        "Reason-code namespace remains SVS-prefixed",
+        "Export payload must remain deterministic for reproducible releases"
+      ],
+      "profile_id": "svs:CompatIssuer:v0.2",
+      "reason_codes": [
+        "SVS_CERT_EXPIRED",
+        "SVS_CERT_INVALID_SIGNATURE",
+        "SVS_CERT_MISSING_CERT",
+        "SVS_CERT_MISSING_SUBJECT_PK",
+        "SVS_CERT_REVOKED",
+        "SVS_CERT_WRONG_ISSUER",
+        "SVS_DEGRADE_PREVIEW_ONLY",
+        "SVS_EFFECT_UNKNOWN",
+        "SVS_GATE_MISSING_RECEIPT",
+        "SVS_GATE_RECEIPT_B64_PARSE_ERROR",
+        "SVS_GATE_RECEIPT_PARSE_ERROR",
+        "SVS_POLICY_ALLOW",
+        "SVS_POLICY_NEEDS_HUMAN_CONFIRM",
+        "SVS_POLICY_VIOLATION",
+        "SVS_REPLAY_DETECTED",
+        "SVS_SIG_INVALID_SIGNATURE",
+        "SVS_SIG_MISSING_RECEIPT_SIG",
+        "SVS_SIG_UNSUPPORTED_ALG",
+        "SVS_TIME_EXPIRED_RECEIPT",
+        "SVS_TIME_RECEIPT_TIME_PARSE_ERROR"
+      ],
+      "title": "CompatIssuer",
+      "type_ids": [
+        "svs:AuditReceipt:v0.2",
+        "svs:Policy:v0.2",
+        "svs:PolicyDecision:v0.2"
+      ]
+    },
+    {
+      "constraints": [
+        "Verify cryptographic signature and certificate chain",
+        "Enforce nonce replay protection",
+        "Enforce receipt time window and reason-code policy"
+      ],
+      "profile_id": "svs:ReceiptVerifier:v0.2",
+      "reason_codes": [
+        "SVS_CERT_EXPIRED",
+        "SVS_CERT_INVALID_SIGNATURE",
+        "SVS_CERT_MISSING_CERT",
+        "SVS_CERT_MISSING_SUBJECT_PK",
+        "SVS_CERT_REVOKED",
+        "SVS_CERT_WRONG_ISSUER",
+        "SVS_POLICY_ALLOW",
+        "SVS_POLICY_NEEDS_HUMAN_CONFIRM",
+        "SVS_POLICY_VIOLATION",
+        "SVS_REPLAY_DETECTED",
+        "SVS_SIG_INVALID_SIGNATURE",
+        "SVS_SIG_MISSING_RECEIPT_SIG",
+        "SVS_SIG_UNSUPPORTED_ALG",
+        "SVS_TIME_EXPIRED_RECEIPT",
+        "SVS_TIME_RECEIPT_TIME_PARSE_ERROR"
+      ],
+      "title": "ReceiptVerifier",
+      "type_ids": [
+        "svs:AuditReceipt:v0.2",
+        "svs:ContextDigest:v0.2",
+        "svs:EvidenceRef:v0.2",
+        "svs:PolicyDecision:v0.2"
+      ]
+    }
+  ]
+}
