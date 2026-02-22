@@ -10,6 +10,6 @@
   "tool": { "name": "content_api", "action_type": "publish" },
   "action": { "action_id": "a-002", "params_digest": "sha256:params2" },
   "context_digest": "sha256:context2",
-  "decision": { "effect": "DENY", "reason_code": "POLICY_VIOLATION" },
+  "decision": { "effect": "DENY", "reason_code": "SVS_POLICY_VIOLATION" },
   "signature": { "alg": "Ed25519", "kid": "k-001", "sig": "BASE64_SIGNATURE_PLACEHOLDER" }
 }

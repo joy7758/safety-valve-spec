@@ -1,7 +1,7 @@
 {
   "receipt_version": "0.1",
   "receipt_id": "r-degrade-001",
-  "issued_at": "2026-02-22T11:36:39Z",
+  "issued_at": "2026-02-22T11:39:44Z",
   "nonce": "n-deg12345",
   "actor": {
     "type": "user",
@@ -31,7 +31,7 @@
   "output_digest": "sha256:output3",
   "decision": {
     "effect": "DEGRADE",
-    "reason_code": "NEEDS_HUMAN_CONFIRM",
+    "reason_code": "SVS_POLICY_NEEDS_HUMAN_CONFIRM",
     "constraints": {
       "requires_human_confirm": true
     }
@@ -39,7 +39,7 @@
   "signature": {
     "alg": "Ed25519",
     "kid": "impl-kid-001",
-    "sig": "aUNLDz0sL31N4VHpZk/xnyHAVZpUUVYxizWsvcTnfV9R6tyGgJBjNdfiLLr9+5ZhjFMU49Gpa+DJUHlIc+i8Aw==",
+    "sig": "qV2PEi0WQArqy0WXNu/7Z/wBE/CCbuOFdKHUw9k/A7PtL0YFx99DSql1Uhkpx+hj/VHCTucZ9xOM3oBQB63bCg==",
     "cert": {
       "cert_version": "0.1",
       "cert_id": "c-e75c3c83-8595-4391-bf96-32169707f386",

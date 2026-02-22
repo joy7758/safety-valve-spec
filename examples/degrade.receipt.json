@@ -13,7 +13,7 @@
   "output_digest": "sha256:output3",
   "decision": {
     "effect": "DEGRADE",
-    "reason_code": "NEEDS_HUMAN_CONFIRM",
+    "reason_code": "SVS_POLICY_NEEDS_HUMAN_CONFIRM",
     "constraints": { "requires_human_confirm": true }
   },
   "signature": { "alg": "Ed25519", "kid": "k-001", "sig": "BASE64_SIGNATURE_PLACEHOLDER" }

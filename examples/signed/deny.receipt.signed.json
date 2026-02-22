@@ -1,7 +1,7 @@
 {
   "receipt_version": "0.1",
   "receipt_id": "r-deny-001",
-  "issued_at": "2026-02-22T11:36:39Z",
+  "issued_at": "2026-02-22T11:39:44Z",
   "nonce": "n-deny1234",
   "actor": {
     "type": "user",
@@ -30,12 +30,12 @@
   "context_digest": "sha256:context2",
   "decision": {
     "effect": "DENY",
-    "reason_code": "POLICY_VIOLATION"
+    "reason_code": "SVS_POLICY_VIOLATION"
   },
   "signature": {
     "alg": "Ed25519",
     "kid": "impl-kid-001",
-    "sig": "lRd2lR4MjABhuXks0iK/htnE0vkpFMF9Q8NiaySZ+Bj7TK5AhAT5nyXwCrfwIVNwOKXOQWCRHgm4LIJ5bm8zDg==",
+    "sig": "/j52iR+9x+5WtgqSiwDBoeXfNPs4H1jvfDQ/9+JtaUu6XJc69uqAzbXPrPL0410DIn4eZ70t78RY3CRORnx5Cw==",
     "cert": {
       "cert_version": "0.1",
       "cert_id": "c-e75c3c83-8595-4391-bf96-32169707f386",

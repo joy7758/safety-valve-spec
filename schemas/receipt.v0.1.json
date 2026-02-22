@@ -153,7 +153,28 @@
           ]
         },
         "reason_code": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "SVS_CERT_EXPIRED",
+            "SVS_CERT_INVALID_SIGNATURE",
+            "SVS_CERT_MISSING_CERT",
+            "SVS_CERT_MISSING_SUBJECT_PK",
+            "SVS_CERT_WRONG_ISSUER",
+            "SVS_DEGRADE_PREVIEW_ONLY",
+            "SVS_EFFECT_UNKNOWN",
+            "SVS_GATE_MISSING_RECEIPT",
+            "SVS_GATE_RECEIPT_B64_PARSE_ERROR",
+            "SVS_GATE_RECEIPT_PARSE_ERROR",
+            "SVS_POLICY_ALLOW",
+            "SVS_POLICY_NEEDS_HUMAN_CONFIRM",
+            "SVS_POLICY_VIOLATION",
+            "SVS_REPLAY_DETECTED",
+            "SVS_SIG_INVALID_SIGNATURE",
+            "SVS_SIG_MISSING_RECEIPT_SIG",
+            "SVS_SIG_UNSUPPORTED_ALG",
+            "SVS_TIME_EXPIRED_RECEIPT",
+            "SVS_TIME_RECEIPT_TIME_PARSE_ERROR"
+          ]
         },
         "constraints": {
           "type": "object"

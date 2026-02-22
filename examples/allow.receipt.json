@@ -11,6 +11,6 @@
   "action": { "action_id": "a-001", "params_digest": "sha256:params" },
   "context_digest": "sha256:context",
   "output_digest": "sha256:output",
-  "decision": { "effect": "ALLOW", "reason_code": "OK" },
+  "decision": { "effect": "ALLOW", "reason_code": "SVS_POLICY_ALLOW" },
   "signature": { "alg": "Ed25519", "kid": "k-001", "sig": "BASE64_SIGNATURE_PLACEHOLDER" }
 }

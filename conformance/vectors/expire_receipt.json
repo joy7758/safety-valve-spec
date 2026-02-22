@@ -32,12 +32,12 @@
   "output_digest": "sha256:output",
   "decision": {
     "effect": "ALLOW",
-    "reason_code": "OK"
+    "reason_code": "SVS_POLICY_ALLOW"
   },
   "signature": {
     "alg": "Ed25519",
     "kid": "impl-kid-001",
-    "sig": "HevqI+Zw+il3i/+R1QB5r+bnfU7S6VusLsrFJKZaN6g0Vq+LdNyEEviUnyNSIbe41npdmsYCeQhhx48yCsebAg==",
+    "sig": "3wLeB+8SWWKKjv/Vi8v4SDrO4eYp0ve6pYx5TXzh+X8i6Rf7y1XDuqmbmy33mGWzoTosTKqY/evI5R0mGxbLBQ==",
     "cert": {
       "cert_version": "0.1",
       "cert_id": "c-e75c3c83-8595-4391-bf96-32169707f386",

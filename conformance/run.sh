@@ -187,7 +187,7 @@ record "T08" "PASS" "deny receipt verified"
 
 # T09 DEGRADE constraints enforced (gateway)
 gateway_reset
-gateway_expect "T09a" "/execute" '{"action":"do","mode":"commit","payload":{}}' 403 "DEGRADE_PREVIEW_ONLY" "examples/signed/degrade.receipt.signed.json"
+gateway_expect "T09a" "/execute" '{"action":"do","mode":"commit","payload":{}}' 403 "SVS_DEGRADE_PREVIEW_ONLY" "examples/signed/degrade.receipt.signed.json"
 gateway_reset
 gateway_expect "T09b" "/execute" '{"action":"do","mode":"preview","payload":{}}' 200 "DEGRADED_PREVIEW" "examples/signed/degrade.receipt.signed.json"
 record "T09" "PASS" "degrade preview-only enforced"
@@ -223,6 +223,11 @@ record "X02" "PASS" "wrong issuer rejected"
 reset_replay_db
 expect_fail_code "X03" conformance/vectors/forge_cert_sig.json "FAIL: SVS_CERT_INVALID_SIGNATURE"
 record "X03" "PASS" "forged cert signature rejected"
+
+
+reset_replay_db
+expect_fail_code "X04" conformance/vectors/unknown_reason.signed.json "FAIL: SVS_POLICY_VIOLATION"
+record "X04" "PASS" "unknown reason_code rejected by schema enum"
 
 python - <<'PY'
 import json

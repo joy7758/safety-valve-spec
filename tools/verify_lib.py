@@ -4,6 +4,11 @@ import os
 from dataclasses import dataclass
 
 try:
+  from tools.schema_check import check_reason_code
+except ModuleNotFoundError:
+  from schema_check import check_reason_code
+
+try:
   from tools.svs_crypto import b64d, canonical_json, parse_rfc3339, utcnow, verify_ed25519
 except ModuleNotFoundError:
   from svs_crypto import b64d, canonical_json, parse_rfc3339, utcnow, verify_ed25519
@@ -106,5 +111,10 @@ def verify_receipt_obj(r: dict, cfg: VerifyConfig | None = None):
     return False, "SVS_SIG_MISSING_RECEIPT_SIG"
   if not verify_ed25519(subject_pk, canonical_json(payload), b64d(receipt_sig)):
     return False, "SVS_SIG_INVALID_SIGNATURE"
+
+  # Enforce reason_code enum from schema.
+  ok, code = check_reason_code(r)
+  if not ok:
+    return False, code
 
   return True, "PASS"
