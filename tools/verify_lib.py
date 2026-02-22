@@ -38,30 +38,30 @@ def verify_receipt_obj(r: dict, cfg: VerifyConfig | None = None):
 
   sig = r.get("signature") or {}
   if sig.get("alg") != "Ed25519":
-    return False, "UNSUPPORTED_ALG"
+    return False, "SVS_SIG_UNSUPPORTED_ALG"
 
   cert = sig.get("cert")
   if not cert:
-    return False, "MISSING_CERT"
+    return False, "SVS_CERT_MISSING_CERT"
 
   # Load Root PK/KID
   try:
     root_pk = b64d(open("keys/root_ca.pk.b64", "r", encoding="utf-8").read().strip())
     root_kid = open("keys/root_ca.kid", "r", encoding="utf-8").read().strip()
   except Exception:
-    return False, "MISSING_ROOT"
+    return False, "SVS_CERT_WRONG_ISSUER"
 
   # Cert issuer check
   if cert.get("issuer_kid") != root_kid:
-    return False, "CERT_WRONG_ISSUER"
+    return False, "SVS_CERT_WRONG_ISSUER"
 
   # Cert signature verify
   cert_payload = dict(cert)
   cert_sig_b64 = cert_payload.pop("sig_b64", None)
   if not cert_sig_b64:
-    return False, "CERT_MISSING_SIG"
+    return False, "SVS_CERT_INVALID_SIGNATURE"
   if not verify_ed25519(root_pk, canonical_json(cert_payload), b64d(cert_sig_b64)):
-    return False, "CERT_INVALID_SIGNATURE"
+    return False, "SVS_CERT_INVALID_SIGNATURE"
 
   # Cert validity
   try:
@@ -69,18 +69,18 @@ def verify_receipt_obj(r: dict, cfg: VerifyConfig | None = None):
     ia = parse_rfc3339(cert.get("issued_at"))
     ea = parse_rfc3339(cert.get("expires_at"))
   except Exception:
-    return False, "CERT_TIME_PARSE_ERROR"
+    return False, "SVS_CERT_EXPIRED"
   if not (ia <= now <= ea):
-    return False, "CERT_EXPIRED"
+    return False, "SVS_CERT_EXPIRED"
 
   # Receipt time window
   try:
     issued_at = parse_rfc3339(r.get("issued_at"))
   except Exception:
-    return False, "RECEIPT_TIME_PARSE_ERROR"
+    return False, "SVS_TIME_RECEIPT_TIME_PARSE_ERROR"
   delta = abs((now - issued_at).total_seconds())
   if delta > cfg.time_window_seconds:
-    return False, "EXPIRED_RECEIPT"
+    return False, "SVS_TIME_EXPIRED_RECEIPT"
 
   # Replay protection (receipt_id + nonce)
   nonce = r.get("nonce", "")
@@ -88,14 +88,14 @@ def verify_receipt_obj(r: dict, cfg: VerifyConfig | None = None):
   key = f"{rid}:{nonce}"
   db = _load_seen(cfg.replay_db_path)
   if key in db["nonces"]:
-    return False, "REPLAY_DETECTED"
+    return False, "SVS_REPLAY_DETECTED"
   db["nonces"][key] = r.get("issued_at")
   _save_seen(cfg.replay_db_path, db)
 
   # Receipt signature verify with subject public key
   subject_pk_b64 = cert.get("subject_public_key_b64")
   if not subject_pk_b64:
-    return False, "CERT_MISSING_SUBJECT_PK"
+    return False, "SVS_CERT_MISSING_SUBJECT_PK"
   subject_pk = b64d(subject_pk_b64)
 
   payload = copy.deepcopy(r)
@@ -103,8 +103,8 @@ def verify_receipt_obj(r: dict, cfg: VerifyConfig | None = None):
 
   receipt_sig = sig.get("sig")
   if not receipt_sig:
-    return False, "MISSING_RECEIPT_SIG"
+    return False, "SVS_SIG_MISSING_RECEIPT_SIG"
   if not verify_ed25519(subject_pk, canonical_json(payload), b64d(receipt_sig)):
-    return False, "INVALID_SIGNATURE"
+    return False, "SVS_SIG_INVALID_SIGNATURE"
 
   return True, "PASS"

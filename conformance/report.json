@@ -1,92 +1,92 @@
 {
   "version": "0.1",
-  "started_at": 1771760139.6314712,
+  "started_at": 1771760200.3111749,
   "results": [
     {
       "id": "T01",
       "status": "PASS",
       "note": "gateway enforces missing receipt",
-      "ts": 1771760139.689539
+      "ts": 1771760200.368714
     },
     {
       "id": "T02",
       "status": "PASS",
       "note": "valid signed receipt verified",
-      "ts": 1771760139.741516
+      "ts": 1771760200.419599
     },
     {
       "id": "T03",
       "status": "PASS",
       "note": "invalid receipt signature rejected",
-      "ts": 1771760139.791494
+      "ts": 1771760200.475241
     },
     {
       "id": "T04a",
       "status": "PASS",
       "note": "tamper effect rejected",
-      "ts": 1771760139.841804
+      "ts": 1771760200.525223
     },
     {
       "id": "T04b",
       "status": "PASS",
       "note": "tamper tool rejected",
-      "ts": 1771760139.893086
+      "ts": 1771760200.5748281
     },
     {
       "id": "T05",
       "status": "PASS",
       "note": "replay detected",
-      "ts": 1771760139.9806
+      "ts": 1771760200.659012
     },
     {
       "id": "T06",
       "status": "PASS",
       "note": "time window enforced",
-      "ts": 1771760140.030984
+      "ts": 1771760200.708312
     },
     {
       "id": "T07",
       "status": "PASS",
       "note": "bypass requires receipt",
-      "ts": 1771760140.08916
+      "ts": 1771760200.766206
     },
     {
       "id": "T08",
       "status": "PASS",
       "note": "deny receipt verified",
-      "ts": 1771760140.139877
+      "ts": 1771760200.816193
     },
     {
       "id": "T09",
       "status": "PASS",
       "note": "degrade preview-only enforced",
-      "ts": 1771760140.353102
+      "ts": 1771760201.0056078
     },
     {
       "id": "T10",
       "status": "PASS",
       "note": "metrics reconciled",
-      "ts": 1771760140.504013
+      "ts": 1771760201.1495821
     },
     {
       "id": "X01",
       "status": "PASS",
       "note": "missing cert rejected",
-      "ts": 1771760140.551126
+      "ts": 1771760201.195107
     },
     {
       "id": "X02",
       "status": "PASS",
       "note": "wrong issuer rejected",
-      "ts": 1771760140.5975978
+      "ts": 1771760201.240223
     },
     {
       "id": "X03",
       "status": "PASS",
       "note": "forged cert signature rejected",
-      "ts": 1771760140.646534
+      "ts": 1771760201.28802
     }
   ],
-  "finished_at": 1771760140.660918,
+  "finished_at": 1771760201.301961,
   "overall": "PASS"
 }

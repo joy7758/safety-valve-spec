@@ -143,7 +143,7 @@ PY
 }
 
 # T01 No receipt, no action (gateway)
-gateway_expect "T01" "/execute" '{"action":"do","mode":"commit","payload":{}}' 403 "MISSING_RECEIPT"
+gateway_expect "T01" "/execute" '{"action":"do","mode":"commit","payload":{}}' 403 "SVS_GATE_MISSING_RECEIPT"
 record "T01" "PASS" "gateway enforces missing receipt"
 
 # T02 Signature verification required (valid receipt passes)
@@ -153,31 +153,31 @@ record "T02" "PASS" "valid signed receipt verified"
 
 # T03 Forged receipt rejected (receipt signature invalid)
 reset_replay_db
-expect_fail_code "T03" conformance/vectors/forge_receipt_sig.json "FAIL: INVALID_SIGNATURE"
+expect_fail_code "T03" conformance/vectors/forge_receipt_sig.json "FAIL: SVS_SIG_INVALID_SIGNATURE"
 record "T03" "PASS" "invalid receipt signature rejected"
 
 # T04 Tamper detection (modify effect/tool)
 reset_replay_db
-expect_fail_code "T04a" conformance/vectors/tamper_effect.json "FAIL: INVALID_SIGNATURE"
+expect_fail_code "T04a" conformance/vectors/tamper_effect.json "FAIL: SVS_SIG_INVALID_SIGNATURE"
 record "T04a" "PASS" "tamper effect rejected"
 
 reset_replay_db
-expect_fail_code "T04b" conformance/vectors/tamper_tool.json "FAIL: INVALID_SIGNATURE"
+expect_fail_code "T04b" conformance/vectors/tamper_tool.json "FAIL: SVS_SIG_INVALID_SIGNATURE"
 record "T04b" "PASS" "tamper tool rejected"
 
 # T05 Replay protection (verify same receipt twice)
 reset_replay_db
 expect_stdout_contains "T05a" "PASS" python tools/verify_receipt.py examples/signed/allow.receipt.signed.json
-expect_fail_code "T05b" examples/signed/allow.receipt.signed.json "FAIL: REPLAY_DETECTED"
+expect_fail_code "T05b" examples/signed/allow.receipt.signed.json "FAIL: SVS_REPLAY_DETECTED"
 record "T05" "PASS" "replay detected"
 
 # T06 Time window enforcement (expired receipt)
 reset_replay_db
-expect_fail_code "T06" conformance/vectors/expire_receipt.json "FAIL: EXPIRED_RECEIPT"
+expect_fail_code "T06" conformance/vectors/expire_receipt.json "FAIL: SVS_TIME_EXPIRED_RECEIPT"
 record "T06" "PASS" "time window enforced"
 
 # T07 Bypass path blocked (gateway)
-gateway_expect "T07" "/bypass" '{"action":"do","mode":"commit","payload":{}}' 403 "MISSING_RECEIPT"
+gateway_expect "T07" "/bypass" '{"action":"do","mode":"commit","payload":{}}' 403 "SVS_GATE_MISSING_RECEIPT"
 record "T07" "PASS" "bypass requires receipt"
 
 # T08 DENY receipts mandatory -> verify deny receipts can be signed & verified
@@ -213,15 +213,15 @@ record "T10" "PASS" "metrics reconciled"
 
 # Extra cert chain failures
 reset_replay_db
-expect_fail_code "X01" conformance/vectors/remove_cert.json "FAIL: MISSING_CERT"
+expect_fail_code "X01" conformance/vectors/remove_cert.json "FAIL: SVS_CERT_MISSING_CERT"
 record "X01" "PASS" "missing cert rejected"
 
 reset_replay_db
-expect_fail_code "X02" conformance/vectors/wrong_issuer.json "FAIL: CERT_WRONG_ISSUER"
+expect_fail_code "X02" conformance/vectors/wrong_issuer.json "FAIL: SVS_CERT_WRONG_ISSUER"
 record "X02" "PASS" "wrong issuer rejected"
 
 reset_replay_db
-expect_fail_code "X03" conformance/vectors/forge_cert_sig.json "FAIL: CERT_INVALID_SIGNATURE"
+expect_fail_code "X03" conformance/vectors/forge_cert_sig.json "FAIL: SVS_CERT_INVALID_SIGNATURE"
 record "X03" "PASS" "forged cert signature rejected"
 
 python - <<'PY'

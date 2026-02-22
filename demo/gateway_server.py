@@ -34,15 +34,15 @@ def _parse_receipt(
       raw = base64.b64decode(x_svs_receipt_b64.encode("ascii"))
       return json.loads(raw.decode("utf-8"))
     except Exception:
-      raise HTTPException(status_code=403, detail={"reason_code":"RECEIPT_B64_PARSE_ERROR"})
+      raise HTTPException(status_code=403, detail={"reason_code":"SVS_GATE_RECEIPT_B64_PARSE_ERROR"})
 
   if x_svs_receipt:
     try:
       return json.loads(x_svs_receipt)
     except Exception:
-      raise HTTPException(status_code=403, detail={"reason_code":"RECEIPT_PARSE_ERROR"})
+      raise HTTPException(status_code=403, detail={"reason_code":"SVS_GATE_RECEIPT_PARSE_ERROR"})
 
-  raise HTTPException(status_code=403, detail={"reason_code":"MISSING_RECEIPT"})
+  raise HTTPException(status_code=403, detail={"reason_code":"SVS_GATE_MISSING_RECEIPT"})
 
 def _require_and_verify(req: ExecReq, x_svs_receipt_b64: str | None, x_svs_receipt: str | None):
   r = _parse_receipt(x_svs_receipt_b64, x_svs_receipt, req.receipt)
@@ -65,7 +65,7 @@ def _enforce_decision(r: dict, req: ExecReq):
     STATE["degraded"] += 1
     # preview-only in demo
     if req.mode != "preview":
-      raise HTTPException(status_code=403, detail={"reason_code":"DEGRADE_PREVIEW_ONLY"})
+      raise HTTPException(status_code=403, detail={"reason_code":"SVS_DEGRADE_PREVIEW_ONLY"})
     if constraints.get("requires_human_confirm", False):
       return {"status":"DEGRADED_PREVIEW", "requires_human_confirm": True}
     return {"status":"DEGRADED_PREVIEW"}
@@ -76,7 +76,7 @@ def _enforce_decision(r: dict, req: ExecReq):
       raise HTTPException(status_code=403, detail={"reason_code":"READ_ONLY"})
     return {"status":"ALLOWED"}
 
-  raise HTTPException(status_code=403, detail={"reason_code":"UNKNOWN_EFFECT"})
+  raise HTTPException(status_code=403, detail={"reason_code":"SVS_EFFECT_UNKNOWN"})
 
 @app.post("/execute")
 def execute(

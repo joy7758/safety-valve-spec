@@ -1,15 +1,15 @@
-INFO:     Started server process [76737]
+INFO:     Started server process [76925]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://127.0.0.1:8089 (Press CTRL+C to quit)
-INFO:     127.0.0.1:56278 - "GET /metrics HTTP/1.1" 200 OK
-INFO:     127.0.0.1:56280 - "POST /reset HTTP/1.1" 200 OK
-INFO:     127.0.0.1:56282 - "POST /execute HTTP/1.1" 403 Forbidden
-INFO:     127.0.0.1:56284 - "POST /bypass HTTP/1.1" 403 Forbidden
-INFO:     127.0.0.1:56286 - "POST /reset HTTP/1.1" 200 OK
-INFO:     127.0.0.1:56288 - "POST /execute HTTP/1.1" 403 Forbidden
-INFO:     127.0.0.1:56290 - "POST /reset HTTP/1.1" 200 OK
-INFO:     127.0.0.1:56292 - "POST /execute HTTP/1.1" 200 OK
-INFO:     127.0.0.1:56294 - "POST /reset HTTP/1.1" 200 OK
-INFO:     127.0.0.1:56296 - "POST /execute HTTP/1.1" 200 OK
-INFO:     127.0.0.1:56298 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56339 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56341 - "POST /reset HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56343 - "POST /execute HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:56345 - "POST /bypass HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:56347 - "POST /reset HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56349 - "POST /execute HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:56351 - "POST /reset HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56353 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56355 - "POST /reset HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56357 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56359 - "GET /metrics HTTP/1.1" 200 OK

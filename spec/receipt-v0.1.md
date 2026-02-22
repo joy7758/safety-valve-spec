@@ -45,3 +45,8 @@ In CA mode, the receipt includes an embedded SVS-CERT:
 
 ## Canonicalization
 - Canonical payload = receipt JSON without `signature`, with stable key order.
+
+## Identifiers
+- Spec ID: `svs`
+- Receipt Type ID: `svs:AuditReceipt:v0.1`
+- Decision Type ID: `svs:PolicyDecision:v0.1`

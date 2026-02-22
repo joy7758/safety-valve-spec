@@ -45,3 +45,6 @@ An implementation is SVS-Compatible v0.1 if it passes ALL tests below.
 ## Implementation Notes (v0.1 runner)
 - Offline-verifiable now: T02, T03, T04, T05, T06, T08 (+ cert-chain extras X01..X03)
 - Action-boundary (gateway demo) now implemented for: T01, T07, T09, T10
+
+## Reason Code Requirement
+All failures MUST emit SVS reason codes defined in `spec/reason-codes-v0.1.md`.

@@ -1,7 +1,7 @@
 {
   "receipt_version": "0.1",
   "receipt_id": "r-degrade-001",
-  "issued_at": "2026-02-22T11:35:39Z",
+  "issued_at": "2026-02-22T11:36:39Z",
   "nonce": "n-deg12345",
   "actor": {
     "type": "user",
@@ -39,7 +39,7 @@
   "signature": {
     "alg": "Ed25519",
     "kid": "impl-kid-001",
-    "sig": "igm1MSVl1NV2du082m7R1PO8oR0dhxlT7rNWl7dVAWLkL54OosPyXc+N8j9PtHntPYf5lPN60AFAyBI9hexqCQ==",
+    "sig": "aUNLDz0sL31N4VHpZk/xnyHAVZpUUVYxizWsvcTnfV9R6tyGgJBjNdfiLLr9+5ZhjFMU49Gpa+DJUHlIc+i8Aw==",
     "cert": {
       "cert_version": "0.1",
       "cert_id": "c-e75c3c83-8595-4391-bf96-32169707f386",
