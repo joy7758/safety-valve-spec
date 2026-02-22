@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it using the metadata below."
+title: "safety-valve-spec"
+type: software
+authors:
+  - family-names: "Zhang"
+    given-names: "Bin"
+repository-code: "https://github.com/joy7758/safety-valve-spec"
+url: "https://github.com/joy7758/safety-valve-spec"
+abstract: "Action-boundary receipt and conformance specification for AI agent safety controls."
+keywords:
+  - safety-valve
+  - agent-safety
+  - conformance
+  - receipt
+  - policy-gate
