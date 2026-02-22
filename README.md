@@ -1,5 +1,41 @@
 # Safety Valve Spec (SVS)
 
+<!-- SEARCH_VISIBILITY_BEGIN -->
+## Discoverability Snapshot / 检索曝光摘要
+
+- Standard ID / 标准编号: `RR-SVS`
+- Repository / 仓库名: `safety-valve-spec`
+
+### EN Summary / 英文摘要
+Action-boundary receipt and conformance specification for AI agent safety controls.
+
+### CN Summary / 中文摘要
+面向AI代理安全控制的动作边界凭据与一致性规范。
+
+### SEO Keywords / 检索关键词
+`safety-valve`, `agent-safety`, `conformance`, `receipt`, `policy-gate`
+
+### Suggested Search Phrases (EN)
+- safety-valve-spec RR-SVS open standard
+- safety-valve-spec safety-valve agent-safety github
+- RR-SVS safety-valve reference implementation
+
+### 建议检索短语（中文）
+- safety-valve-spec RR-SVS 标准 规范
+- safety-valve-spec safety-valve agent-safety 仓库
+- RR-SVS 参考实现 红岩 宪章
+
+### Quick Links / 快速入口
+- Governance Hub / 总入口: https://github.com/joy7758/RedRock-Constitution
+- Standards Registry / 标准注册表: https://github.com/joy7758/RedRock-Constitution/blob/main/docs/registry/STANDARDS_REGISTRY.md#rr-svs
+- Repos Index / 仓库索引: https://github.com/joy7758/RedRock-Constitution/blob/main/docs/registry/REPOS_INDEX_CN_EN.md
+- Ecosystem Graph / 生态关系图: https://github.com/joy7758/RedRock-Constitution/blob/main/docs/registry/ECOSYSTEM_GRAPH_CN_EN.md
+- Onepager / 一页纸: (pending)
+- Citation / 引用元数据: `CITATION.cff`
+- Security Policy / 安全策略: `SECURITY.md`
+- Machine-readable / 机器可读: `machine-readable/repository.json`
+<!-- SEARCH_VISIBILITY_END -->
+
 ## Quick Copy-Paste
 - Latest release: `v0.1.4`
 - Pinned issue: https://github.com/joy7758/safety-valve-spec/issues/1
