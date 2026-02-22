@@ -12,3 +12,6 @@ jobs:
           test -f spec/receipt-v0.1.md
           test -f schemas/receipt.v0.1.json
           test -f conformance/tests.md
+          rm -f conformance/state/seen_nonces.json
+          python -m pip install cryptography
+          python tools/verify_receipt.py examples/signed/allow.receipt.signed.json

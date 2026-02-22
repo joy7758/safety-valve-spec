@@ -20,3 +20,17 @@ An implementation is **SVS-Compatible** if it:
 - Verify tool: `tools/verify_receipt.py`
 
 > v0.1 focuses on **action-boundary enforcement** and **receipt verifiability**.
+
+## CA Mode (recommended)
+- Root CA issues an SVS certificate binding `kid -> public_key`.
+- Implementations sign receipts with their own keys and embed the cert.
+- Verifiers validate: cert signature (root) -> receipt signature (leaf) -> nonce/time-window.
+
+### Commands
+```bash
+source .venv/bin/activate
+python tools/ca_generate_root.py
+python tools/ca_issue_cert.py
+python tools/receipt_sign.py examples/allow.receipt.json examples/signed/allow.receipt.signed.json
+python tools/verify_receipt.py examples/signed/allow.receipt.signed.json
+```

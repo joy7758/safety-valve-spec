@@ -1,7 +1,7 @@
 {
   "receipt_version": "0.1",
   "receipt_id": "r-allow-001",
-  "issued_at": "2026-02-22T00:00:00Z",
+  "issued_at": "2026-02-22T11:11:25Z",
   "nonce": "n-abc12345",
   "actor": { "type": "user", "id": "u-001" },
   "agent": { "name": "agent-x", "version": "0.1", "model": "gpt-like" },

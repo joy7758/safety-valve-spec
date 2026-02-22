@@ -7,6 +7,13 @@ At the **action boundary**, enforce:
 - ALLOW / DENY / DEGRADE all produce receipts
 
 ## Receipt Fields (minimal)
+
+### Signature CA Mode (additive)
+In CA mode, the receipt includes an embedded SVS-CERT:
+- signature.cert: SVS Certificate JSON
+- signature.sig: base64 signature by subject private key over canonical receipt payload
+
+
 - receipt_version: "0.1"
 - receipt_id: UUID
 - issued_at: RFC3339 UTC timestamp

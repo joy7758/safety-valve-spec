@@ -1,0 +1,54 @@
+{
+  "receipt_version": "0.1",
+  "receipt_id": "r-degrade-001",
+  "issued_at": "2026-02-22T11:11:25Z",
+  "nonce": "n-deg12345",
+  "actor": {
+    "type": "user",
+    "id": "u-001"
+  },
+  "agent": {
+    "name": "agent-x",
+    "version": "0.1"
+  },
+  "intent": {
+    "intent_id": "i-001",
+    "scope": "publish_post"
+  },
+  "policy": {
+    "policy_id": "p-001",
+    "policy_version": "0.1"
+  },
+  "tool": {
+    "name": "content_api",
+    "action_type": "publish"
+  },
+  "action": {
+    "action_id": "a-003",
+    "params_digest": "sha256:params3"
+  },
+  "context_digest": "sha256:context3",
+  "output_digest": "sha256:output3",
+  "decision": {
+    "effect": "DEGRADE",
+    "reason_code": "NEEDS_HUMAN_CONFIRM",
+    "constraints": {
+      "requires_human_confirm": true
+    }
+  },
+  "signature": {
+    "alg": "Ed25519",
+    "kid": "impl-kid-001",
+    "sig": "GLxoBNu7P6kqWGPqGsiTZ5FCH+wCkD12w8oiS+d/Vx91bZ9o1v8GtUktPARzGYRAj4O4zTgQ2/dFpQPzDd/lCg==",
+    "cert": {
+      "cert_version": "0.1",
+      "cert_id": "c-e75c3c83-8595-4391-bf96-32169707f386",
+      "subject_kid": "impl-kid-001",
+      "subject_public_key_b64": "Kx1VchCygMzoWM0eoDU8X/ojiw/RAsj3yVjfr6OtGzw=",
+      "issuer_kid": "svs-root-kid-001",
+      "issued_at": "2026-02-22T11:10:26Z",
+      "expires_at": "2027-02-22T11:10:26Z",
+      "sig_b64": "Kzpqkhbp8XfNCKkC8nW1ReykAqltH32lcujnKf5utVgStZFE6b+vPD/FbJX2fWYydTyQrqtIVgM/svWTFW88Aw=="
+    }
+  }
+}

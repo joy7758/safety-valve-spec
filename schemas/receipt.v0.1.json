@@ -3,107 +3,207 @@
   "$id": "svs:receipt:v0.1",
   "type": "object",
   "required": [
-    "receipt_version","receipt_id","issued_at","nonce",
-    "actor","agent","intent","policy","tool","action",
-    "context_digest","decision","signature"
+    "receipt_version",
+    "receipt_id",
+    "issued_at",
+    "nonce",
+    "actor",
+    "agent",
+    "intent",
+    "policy",
+    "tool",
+    "action",
+    "context_digest",
+    "decision",
+    "signature"
   ],
   "properties": {
-    "receipt_version": { "const": "0.1" },
-    "receipt_id": { "type": "string", "minLength": 8 },
-    "issued_at": { "type": "string", "minLength": 10 },
-    "nonce": { "type": "string", "minLength": 8 },
-
+    "receipt_version": {
+      "const": "0.1"
+    },
+    "receipt_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "issued_at": {
+      "type": "string",
+      "minLength": 10
+    },
+    "nonce": {
+      "type": "string",
+      "minLength": 8
+    },
     "actor": {
       "type": "object",
-      "required": ["type","id"],
+      "required": [
+        "type",
+        "id"
+      ],
       "properties": {
-        "type": { "type": "string" },
-        "id": { "type": "string" }
+        "type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
       },
       "additionalProperties": true
     },
     "agent": {
       "type": "object",
-      "required": ["name","version"],
+      "required": [
+        "name",
+        "version"
+      ],
       "properties": {
-        "name": { "type": "string" },
-        "version": { "type": "string" },
-        "model": { "type": "string" }
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        }
       },
       "additionalProperties": true
     },
     "intent": {
       "type": "object",
-      "required": ["intent_id"],
+      "required": [
+        "intent_id"
+      ],
       "properties": {
-        "intent_id": { "type": "string" },
-        "scope": { "type": "string" }
+        "intent_id": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        }
       },
       "additionalProperties": true
     },
     "policy": {
       "type": "object",
-      "required": ["policy_id","policy_version"],
+      "required": [
+        "policy_id",
+        "policy_version"
+      ],
       "properties": {
-        "policy_id": { "type": "string" },
-        "policy_version": { "type": "string" }
+        "policy_id": {
+          "type": "string"
+        },
+        "policy_version": {
+          "type": "string"
+        }
       },
       "additionalProperties": true
     },
     "tool": {
       "type": "object",
-      "required": ["name","action_type"],
+      "required": [
+        "name",
+        "action_type"
+      ],
       "properties": {
-        "name": { "type": "string" },
-        "action_type": { "type": "string" }
+        "name": {
+          "type": "string"
+        },
+        "action_type": {
+          "type": "string"
+        }
       },
       "additionalProperties": true
     },
     "action": {
       "type": "object",
-      "required": ["action_id","params_digest"],
+      "required": [
+        "action_id",
+        "params_digest"
+      ],
       "properties": {
-        "action_id": { "type": "string" },
-        "params_digest": { "type": "string" }
+        "action_id": {
+          "type": "string"
+        },
+        "params_digest": {
+          "type": "string"
+        }
       },
       "additionalProperties": true
     },
-
-    "context_digest": { "type": "string", "minLength": 8 },
-    "output_digest": { "type": "string" },
-
+    "context_digest": {
+      "type": "string",
+      "minLength": 8
+    },
+    "output_digest": {
+      "type": "string"
+    },
     "decision": {
       "type": "object",
-      "required": ["effect","reason_code"],
+      "required": [
+        "effect",
+        "reason_code"
+      ],
       "properties": {
-        "effect": { "enum": ["ALLOW","DENY","DEGRADE"] },
-        "reason_code": { "type": "string" },
-        "constraints": { "type": "object" }
+        "effect": {
+          "enum": [
+            "ALLOW",
+            "DENY",
+            "DEGRADE"
+          ]
+        },
+        "reason_code": {
+          "type": "string"
+        },
+        "constraints": {
+          "type": "object"
+        }
       },
       "additionalProperties": true
     },
-
     "evidence_refs": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["evidence_type","digest"],
+        "required": [
+          "evidence_type",
+          "digest"
+        ],
         "properties": {
-          "evidence_type": { "type": "string" },
-          "digest": { "type": "string" },
-          "uri": { "type": "string" }
+          "evidence_type": {
+            "type": "string"
+          },
+          "digest": {
+            "type": "string"
+          },
+          "uri": {
+            "type": "string"
+          }
         },
         "additionalProperties": true
       }
     },
-
     "signature": {
       "type": "object",
-      "required": ["alg","kid","sig"],
+      "required": [
+        "alg",
+        "kid",
+        "sig"
+      ],
       "properties": {
-        "alg": { "const": "Ed25519" },
-        "kid": { "type": "string" },
-        "sig": { "type": "string", "minLength": 16 }
+        "alg": {
+          "const": "Ed25519"
+        },
+        "kid": {
+          "type": "string"
+        },
+        "sig": {
+          "type": "string",
+          "minLength": 16
+        },
+        "cert": {
+          "type": "object"
+        }
       },
       "additionalProperties": false
     }
