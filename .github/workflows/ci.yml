@@ -43,3 +43,11 @@ jobs:
       - name: Ensure latest exists
         run: |
           test -f dist/svs-compat.latest.json
+
+      - name: Smoke test svs-verify package
+        run: |
+          python -m venv .venv_pkg
+          source .venv_pkg/bin/activate
+          python -m pip install -U pip
+          python -m pip install -e packages/svs_verify
+          svs-verify --help

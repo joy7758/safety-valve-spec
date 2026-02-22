@@ -153,3 +153,15 @@ cd examples/reference-pack
 make conformance
 ```
 <!-- SVS_REFERENCE_PACK_END -->
+
+<!-- SVS_TOOLING_BEGIN -->
+## Tooling
+
+Standalone CLI (pip):
+- `packages/svs_verify` -> `svs-verify`
+
+```bash
+pip install -e packages/svs_verify
+svs-verify --help
+```
+<!-- SVS_TOOLING_END -->
