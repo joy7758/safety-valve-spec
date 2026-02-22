@@ -39,3 +39,7 @@ jobs:
           test -f dist/svs-compat.attestation.json
           test -f dist/svs-compat.badge.svg
           test -f dist/svs-compat.badge.md
+
+      - name: Ensure latest exists
+        run: |
+          test -f dist/svs-compat.latest.json

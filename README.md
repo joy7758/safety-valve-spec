@@ -104,3 +104,21 @@ It uploads artifacts:
 - dist/svs-compat.badge.svg
 - dist/svs-compat.badge.md
 <!-- SVS_REUSABLE_WORKFLOW_END -->
+
+<!-- SVS_RELEASE_BEGIN -->
+## Releases
+
+Tagging a version publishes a GitHub Release with artifacts:
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+Release assets include:
+- report.json
+- svs-compat.attestation.json
+- svs-compat.latest.json
+- svs-compat.badge.svg
+- svs-compat.badge.md
+<!-- SVS_RELEASE_END -->

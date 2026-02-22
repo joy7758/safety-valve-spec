@@ -1,0 +1,54 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          python -m pip install -U pip
+          python -m pip install cryptography fastapi uvicorn
+
+      - name: Run conformance (generates dist artifacts)
+        run: |
+          source .venv/bin/activate
+          bash conformance/run.sh
+
+      - name: Package assets
+        run: |
+          mkdir -p release
+          cp -f conformance/report.json release/
+          cp -f dist/svs-compat.attestation.json release/
+          cp -f dist/svs-compat.latest.json release/
+          cp -f dist/svs-compat.badge.svg release/
+          cp -f dist/svs-compat.badge.md release/
+          (cd release && zip -r "svs-release-${GITHUB_REF_NAME}.zip" report.json svs-compat.attestation.json svs-compat.latest.json svs-compat.badge.svg svs-compat.badge.md)
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release/svs-release-${{ github.ref_name }}.zip
+            release/report.json
+            release/svs-compat.attestation.json
+            release/svs-compat.latest.json
+            release/svs-compat.badge.svg
+            release/svs-compat.badge.md
+          generate_release_notes: true

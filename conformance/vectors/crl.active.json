@@ -1,14 +1,14 @@
 {
   "crl_version": "0.1",
-  "crl_id": "crl-56a27077-e504-48d5-91b9-8bcf41677d1e",
+  "crl_id": "crl-72a40692-232d-4eb8-b4c9-d5dfc8c8cf19",
   "issuer_kid": "svs-root-kid-001",
-  "issued_at": "2026-02-22T11:56:26Z",
+  "issued_at": "2026-02-22T12:02:43Z",
   "entries": [
     {
       "subject_kid": "impl-kid-001",
-      "revoked_at": "2026-02-22T11:56:26Z",
+      "revoked_at": "2026-02-22T12:02:43Z",
       "reason": "revoked by issuer"
     }
   ],
-  "sig_b64": "vXURzNTaL3OmWxQUdI14UoNbSKhS+FlFJ+buYnHbCmZIvoZduVN3F0CmrIw79is24DBKC3FBNBujOpBKCkozDA=="
+  "sig_b64": "aQu62yxLmH1IE5cniZkgpMRIWI3MqzNfv0pHgDOJVg2xt48p3iScaPulPVyuJ9V9lYwfQusqd0io3mWuc9VuAw=="
 }

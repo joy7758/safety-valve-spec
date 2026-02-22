@@ -257,7 +257,10 @@ print("Overall:", r["overall"])
 print("Report:", p)
 PY
 
+# === SVS_ARTIFACTS_BEGIN ===
 # Emit and verify compatibility attestation
 python tools/compat_emit.py --report conformance/report.json --out dist/svs-compat.attestation.json
 python tools/compat_verify.py dist/svs-compat.attestation.json
 python tools/badge_generate.py --att dist/svs-compat.attestation.json --svg dist/svs-compat.badge.svg --md dist/svs-compat.badge.md
+python tools/compat_latest.py --att dist/svs-compat.attestation.json --out dist/svs-compat.latest.json
+# === SVS_ARTIFACTS_END ===

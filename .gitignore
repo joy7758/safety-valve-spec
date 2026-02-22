@@ -34,3 +34,4 @@ keys/*.cert.json
 # examples/signed/
 dist/svs-compat.badge.svg
 dist/svs-compat.badge.md
+dist/svs-compat.latest.json
