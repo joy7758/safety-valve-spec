@@ -1,7 +1,7 @@
 {
   "receipt_version": "0.1",
   "receipt_id": "r-allow-001",
-  "issued_at": "2026-02-22T11:29:07Z",
+  "issued_at": "2026-02-22T11:35:39Z",
   "nonce": "n-abc12345",
   "actor": {
     "type": "user",
@@ -37,6 +37,6 @@
   "signature": {
     "alg": "Ed25519",
     "kid": "impl-kid-001",
-    "sig": "OFCTQFbbESYOpVbQ7Q5GlLPW0xVBd/PeCUKjS10uEAmz1sT0Y9Gs1bIBUa5cU50F3KiZg5Oa3C7/dL5n/Tz5Cw=="
+    "sig": "3TKxSzKpZrYl62tKwazHrvFJtvEXJTc5st8ZzNpEQ+Y7KNrTj81i645E5htL8jydNu8TjqXerMkMB4DeInsfAw=="
   }
 }

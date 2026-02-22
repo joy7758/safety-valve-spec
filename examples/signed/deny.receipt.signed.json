@@ -1,7 +1,7 @@
 {
   "receipt_version": "0.1",
   "receipt_id": "r-deny-001",
-  "issued_at": "2026-02-22T11:29:07Z",
+  "issued_at": "2026-02-22T11:35:39Z",
   "nonce": "n-deny1234",
   "actor": {
     "type": "user",
@@ -35,7 +35,7 @@
   "signature": {
     "alg": "Ed25519",
     "kid": "impl-kid-001",
-    "sig": "Qdic6o4BYLXwcmM/pvfYd6oWMWB3YPvWWfMgYiIV9e8I39bpaKkMn4ZUfsHppAlDvQwu1Y7jmt+VCs+6tJkzDw==",
+    "sig": "DZXRE7WOLT92I+MVoraa82JbpQc7mH4D0xHi0Aer4anUbwcYe5IWgfHrbq1E/LWAn2b+7S7gSffdgwEDjQS3Bw==",
     "cert": {
       "cert_version": "0.1",
       "cert_id": "c-e75c3c83-8595-4391-bf96-32169707f386",

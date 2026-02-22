@@ -56,3 +56,6 @@ Conformance runner will start/stop it automatically:
 ```bash
 bash conformance/run.sh
 ```
+
+### Recommended transport
+Use `X-SVS-Receipt-B64` header (base64-encoded UTF-8 JSON) to avoid quoting issues across shells/CI.
