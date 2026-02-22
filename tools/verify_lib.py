@@ -22,7 +22,7 @@ REPLAY_DB = "conformance/state/seen_nonces.json"
 
 @dataclass
 class VerifyConfig:
-  crl_path: str | None = "conformance/vectors/crl.active.json"
+  crl_path: str | None = None
   time_window_seconds: int = 300
   replay_db_path: str = REPLAY_DB
 

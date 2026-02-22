@@ -1,0 +1,14 @@
+{
+  "crl_version": "0.1",
+  "crl_id": "crl-0b08ba83-52c0-4709-afe8-08a8c028bfa6",
+  "issuer_kid": "svs-root-kid-001",
+  "issued_at": "2026-02-22T11:49:24Z",
+  "entries": [
+    {
+      "subject_kid": "impl-kid-001",
+      "revoked_at": "2026-02-22T11:49:24Z",
+      "reason": "revoked by issuer"
+    }
+  ],
+  "sig_b64": "AAAA"
+}

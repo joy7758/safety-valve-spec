@@ -74,7 +74,8 @@ expect_fail_code() {
   local testid="$1"; shift
   local file="$1"; shift
   local code="$1"; shift
-  expect_stdout_contains "$testid" "$code" python tools/verify_receipt.py "$file"
+  # forward remaining args to verifier
+  expect_stdout_contains "$testid" "$code" python tools/verify_receipt.py "$file" "$@"
 }
 
 gateway_expect() {
@@ -235,8 +236,13 @@ record "X04" "PASS" "unknown reason_code rejected by schema enum"
 # X05 Revoked certificate must fail
 reset_replay_db
 bash conformance/bin/build_crl.sh
-expect_fail_code "X05" examples/signed/allow.receipt.signed.json "FAIL: SVS_CERT_REVOKED"
+expect_fail_code "X05" examples/signed/allow.receipt.signed.json "FAIL: SVS_CERT_REVOKED" --crl conformance/vectors/crl.active.json
 record "X05" "PASS" "revoked cert rejected"
+
+# X06 Tampered CRL must fail verification (trust failure, not revocation)
+reset_replay_db
+expect_fail_code "X06" examples/signed/allow.receipt.signed.json "FAIL: SVS_CERT_INVALID_SIGNATURE" --crl conformance/vectors/crl.tampered.json
+record "X06" "PASS" "tampered CRL rejected"
 
 python - <<'PY'
 import json

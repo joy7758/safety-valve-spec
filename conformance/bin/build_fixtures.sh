@@ -44,3 +44,15 @@ python tools/receipt_sign.py conformance/vectors/unknown_reason.base.json confor
 
 # Build active CRL (revokes current impl key)
 bash conformance/bin/build_crl.sh
+
+# Tamper CRL signature vector (for X06)
+python - <<'PY'
+import json, copy
+from pathlib import Path
+p=Path("conformance/vectors/crl.active.json")
+crl=json.loads(p.read_text(encoding="utf-8"))
+bad=copy.deepcopy(crl)
+bad["sig_b64"]="AAAA"
+Path("conformance/vectors/crl.tampered.json").write_text(json.dumps(bad, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
+print("OK: crl.tampered.json")
+PY
