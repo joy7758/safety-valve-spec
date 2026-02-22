@@ -64,3 +64,11 @@ Use `X-SVS-Receipt-B64` header (base64-encoded UTF-8 JSON) to avoid quoting issu
 SVS supports CRL v0.1 (signed by Root CA). Verifiers may load an active CRL and reject revoked `kid`s.
 - Spec: `spec/crl-v0.1.md`
 - Tooling: `tools/crl_generate.py`, `tools/crl_verify.py`
+
+## Compatibility Attestation
+After conformance passes, SVS can emit a signed compatibility attestation:
+- Spec: `spec/compat-attestation-v0.1.md`
+- Emit: `python tools/compat_emit.py --report conformance/report.json --out dist/svs-compat.attestation.json`
+- Verify: `python tools/compat_verify.py dist/svs-compat.attestation.json`
+
+Conformance runner does this automatically and outputs `dist/svs-compat.attestation.json`.

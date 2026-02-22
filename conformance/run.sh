@@ -256,3 +256,7 @@ json.dump(r, open(p, "w"), indent=2)
 print("Overall:", r["overall"])
 print("Report:", p)
 PY
+
+# Emit and verify compatibility attestation
+python tools/compat_emit.py --report conformance/report.json --out dist/svs-compat.attestation.json
+python tools/compat_verify.py dist/svs-compat.attestation.json

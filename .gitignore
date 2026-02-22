@@ -18,6 +18,7 @@ pip-wheel-metadata/
 # Conformance runtime artifacts
 conformance/state/
 conformance/report.json
+dist/svs-compat.attestation.json
 
 # Demo logs
 *.log
