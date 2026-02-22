@@ -131,3 +131,19 @@ Release assets include:
 - Receipt transport: `X-SVS-Receipt-B64`
 
 <!-- SVS_INTEGRATION_END -->
+
+<!-- SVS_REFERENCE_PACK_BEGIN -->
+## Reference Pack (Docker Compose)
+
+Quick demo (gateway + signed receipt client):
+```bash
+cd examples/reference-pack
+make demo
+```
+
+Run full conformance in Docker:
+```bash
+cd examples/reference-pack
+make conformance
+```
+<!-- SVS_REFERENCE_PACK_END -->

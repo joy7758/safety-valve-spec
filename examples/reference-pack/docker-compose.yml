@@ -1,0 +1,24 @@
+services:
+  gateway:
+    build:
+      context: ../..
+      dockerfile: examples/reference-pack/Dockerfile
+    command: >
+      bash -lc "python -m uvicorn demo.gateway_server:app --host 0.0.0.0 --port 8089"
+    ports:
+      - "8089:8089"
+    volumes:
+      - ../..:/work
+    working_dir: /work
+
+  runner:
+    build:
+      context: ../..
+      dockerfile: examples/reference-pack/Dockerfile
+    depends_on:
+      - gateway
+    command: >
+      bash -lc "bash examples/reference-pack/scripts/demo.sh"
+    volumes:
+      - ../..:/work
+    working_dir: /work
