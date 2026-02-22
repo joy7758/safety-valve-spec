@@ -6,6 +6,10 @@ cd "$ROOT"
 source .venv/bin/activate >/dev/null 2>&1 || true
 source conformance/assert.sh
 
+# Ensure local gateway checks bypass proxies in local/CI environments.
+export NO_PROXY="127.0.0.1,localhost"
+export no_proxy="127.0.0.1,localhost"
+
 reset_replay_db
 conformance/bin/build_fixtures.sh
 # Keep CRL inactive for baseline tests; X05 enables it explicitly.
