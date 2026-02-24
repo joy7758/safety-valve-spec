@@ -1,6 +1,16 @@
 name: svs-conformance
 
 on:
+  workflow_dispatch:
+    inputs:
+      python_version:
+        description: Python version for conformance job
+        required: false
+        default: "3.11"
+      time_window_seconds:
+        description: Allowed receipt age in seconds
+        required: false
+        default: "300"
   workflow_call:
     inputs:
       python_version:
@@ -9,25 +19,19 @@ on:
         default: "3.11"
       time_window_seconds:
         required: false
-        type: number
-        default: 300
-    outputs:
-      overall:
-        description: "Overall result from conformance/report.json"
-        value: ${{ jobs.conformance.outputs.overall }}
+        type: string
+        default: "300"
 
 jobs:
   conformance:
     runs-on: ubuntu-latest
-    outputs:
-      overall: ${{ steps.read_report.outputs.overall }}
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ inputs.python_version }}
+          python-version: ${{ inputs.python_version || '3.11' }}
 
       - name: Install deps
         run: |
@@ -38,14 +42,13 @@ jobs:
 
       - name: Run conformance
         env:
-          SVS_TIME_WINDOW: ${{ inputs.time_window_seconds }}
+          SVS_TIME_WINDOW: ${{ inputs.time_window_seconds || '300' }}
         run: |
           source .venv/bin/activate
           # If you later read SVS_TIME_WINDOW in verify config, wire it here.
           bash conformance/run.sh
 
       - name: Read report output
-        id: read_report
         run: |
           overall="$(python - <<'PY'
 import json
@@ -53,7 +56,7 @@ r = json.load(open('conformance/report.json', 'r', encoding='utf-8'))
 print(r.get('overall', 'UNKNOWN'))
 PY
           )"
-          echo "overall=$overall" >> "$GITHUB_OUTPUT"
+          echo "overall=$overall"
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
