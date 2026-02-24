@@ -50,12 +50,7 @@ jobs:
 
       - name: Read report output
         run: |
-          overall="$(python - <<'PY'
-import json
-r = json.load(open('conformance/report.json', 'r', encoding='utf-8'))
-print(r.get('overall', 'UNKNOWN'))
-PY
-          )"
+          overall="$(python -c "import json; print(json.load(open('conformance/report.json', 'r', encoding='utf-8')).get('overall', 'UNKNOWN'))")"
           echo "overall=$overall"
 
       - name: Upload artifacts
