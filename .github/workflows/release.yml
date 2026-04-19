@@ -47,7 +47,7 @@ jobs:
           (cd release && zip -r "svs-release-${GITHUB_REF_NAME}.zip" report.json svs-compat.attestation.json svs-compat.latest.json svs-compat.badge.svg svs-compat.badge.md)
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: |
             release/svs-release-${{ github.ref_name }}.zip
